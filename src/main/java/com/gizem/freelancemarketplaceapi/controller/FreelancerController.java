@@ -6,6 +6,7 @@ import com.gizem.freelancemarketplaceapi.entity.Freelancer;
 import com.gizem.freelancemarketplaceapi.entity.FreelancerType;
 import com.gizem.freelancemarketplaceapi.service.FreelancerService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +37,7 @@ public class FreelancerController {
     public ResponseEntity<Freelancer> getById(@PathVariable String version, @PathVariable Long id) {
         Freelancer freelancer = freelancerService.getFreelancer(id);
         if (freelancer == null) {
-            throw new ResourceNotFoundException("Freelancer not found with id: " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return ResponseEntity.ok(freelancer);
     }

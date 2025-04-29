@@ -5,6 +5,7 @@ import com.gizem.freelancemarketplaceapi.dto.CommentDTO;
 import com.gizem.freelancemarketplaceapi.entity.Comment;
 import com.gizem.freelancemarketplaceapi.service.CommentService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class CommentController {
     public ResponseEntity<Comment> updateComment(@PathVariable String version, @PathVariable Long commentId, @RequestBody @Valid CommentDTO dto) {
         Comment updated = commentService.updateComment(commentId, dto);
         if (updated == null) {
-            throw new ResourceNotFoundException("Comment not found with id: " + commentId);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return ResponseEntity.ok(updated);
     }
