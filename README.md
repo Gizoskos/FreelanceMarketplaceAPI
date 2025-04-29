@@ -7,7 +7,6 @@ A backend RESTful API for a freelance job marketplace where users can create job
 ## Project Links
 
 - **Swagger UI:** http://localhost:8080/swagger-ui/index.html#/
-- 
 ---
 
 ## Technologies Used
@@ -110,11 +109,13 @@ Copy
 Edit
 git clone https://github.com/Gizoskos/freelance-marketplace-api.git
 cd freelance-marketplace-api
+
 2. Start services (RabbitMQ & PostgreSQL)
 bash
 Copy
 Edit
 docker-compose up -d
+
 3. Configure application properties
 Update src/main/resources/application.properties:
 
@@ -129,12 +130,14 @@ spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
 spring.rabbitmq.password=guest
+
 4. Build and run the project
 bash
 Copy
 Edit
 mvn clean install
 mvn spring-boot:run
+
 5. Open Swagger UI
 bash
 Copy
