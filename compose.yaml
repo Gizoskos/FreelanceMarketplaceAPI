@@ -1,27 +1,4 @@
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: freelance-backend
-    ports:
-      - "8081:${SERVER_PORT}"
-    environment:
-      - 'DB_NAME=${DB_NAME}'
-      - 'DB_USERNAME=${DB_USERNAME}'
-      - 'DB_PASSWORD=${DB_PASSWORD}'
-      - 'DB_PORT=${DB_PORT}'
-      - 'RABBITMQ_USERNAME=${RABBITMQ_USERNAME}'
-      - 'RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}'
-      - 'RABBITMQ_PORT=${RABBITMQ_PORT}'
-      - 'RABBITMQ_HOST=${RABBITMQ_HOST}'
-      - 'RABBITMQ_EXCHANGE=${RABBITMQ_EXCHANGE}'
-      - 'RABBITMQ_QUEUE=${RABBITMQ_QUEUE}'
-      - 'RABBITMQ_ROUTING_KEY=${RABBITMQ_ROUTING_KEY}'
-      - 'SERVER_PORT=${SERVER_PORT}'
-    depends_on:
-      - postgres
-      - rabbitmq
   postgres:
     image: 'postgres:latest'
     container_name: 'freelance-postgres'
@@ -42,6 +19,30 @@ services:
     ports:
       - '${RABBITMQ_PORT}:5672'
       - '15672:15672'
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: freelance-backend
+    ports:
+      - "8081:${SERVER_PORT}"
+    environment:
+      - 'DB_URL=${DB_URL}'
+      - 'DB_NAME=${DB_NAME}'
+      - 'DB_USERNAME=${DB_USERNAME}'
+      - 'DB_PASSWORD=${DB_PASSWORD}'
+      - 'DB_PORT=${DB_PORT}'
+      - 'RABBITMQ_USERNAME=${RABBITMQ_USERNAME}'
+      - 'RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}'
+      - 'RABBITMQ_PORT=${RABBITMQ_PORT}'
+      - 'RABBITMQ_HOST=${RABBITMQ_HOST}'
+      - 'RABBITMQ_EXCHANGE=${RABBITMQ_EXCHANGE}'
+      - 'RABBITMQ_QUEUE=${RABBITMQ_QUEUE}'
+      - 'RABBITMQ_ROUTING_KEY=${RABBITMQ_ROUTING_KEY}'
+      - 'SERVER_PORT=${SERVER_PORT}'
+    depends_on:
+      - postgres
+      - rabbitmq
 
 volumes:
   postgres_data:

@@ -55,11 +55,21 @@ public class FreelancerServiceImp implements FreelancerService {
 
     @Override
     public List<Freelancer> searchBy(String name, String city, FreelancerType type, String specialty, String tool) {
-        if (name != null) return freelancerRepository.findByNameContaining(name);
-        if (city != null) return freelancerRepository.findByCityContaining(city);
-        if (type != null) return freelancerRepository.findByFreelancerType(type);
-        if (specialty != null) return freelancerRepository.findBySpecialtiesContaining(specialty);
-        if (tool != null) return freelancerRepository.findByDesignToolsContaining(tool);
-        return List.of(); // boş liste
+        if (name != null && !name.isBlank()) {
+            return freelancerRepository.findByNameContaining(name);
+        }
+        if (city != null && !city.isBlank()) {
+            return freelancerRepository.findByCityContaining(city);
+        }
+        if (type != null) {
+            return freelancerRepository.findByFreelancerType(type);
+        }
+        if (specialty != null && !specialty.isBlank()) {
+            return freelancerRepository.findBySpecialtiesContaining(specialty);
+        }
+        if (tool != null && !tool.isBlank()) {
+            return freelancerRepository.findByDesignToolsContaining(tool);
+        }
+        return List.of(); //boş dön
     }
 }

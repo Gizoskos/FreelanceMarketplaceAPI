@@ -5,6 +5,7 @@ import com.gizem.freelancemarketplaceapi.dto.JobDTO;
 import com.gizem.freelancemarketplaceapi.entity.Job;
 import com.gizem.freelancemarketplaceapi.service.JobService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class JobController {
     public ResponseEntity<Job> getJob(@PathVariable String version, @PathVariable Long id) {
         Job job = jobService.getJob(id);
         if (job == null) {
-            throw new ResourceNotFoundException("Job not found with id: " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return ResponseEntity.ok(job);
     }
@@ -43,7 +44,7 @@ public class JobController {
     public ResponseEntity<Job> updateJob(@PathVariable String version, @PathVariable Long id, @RequestBody JobDTO dto) {
         Job updated = jobService.updateJob(id, dto);
         if (updated == null) {
-            throw new ResourceNotFoundException("Job not found with id: " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return ResponseEntity.ok(updated);
     }

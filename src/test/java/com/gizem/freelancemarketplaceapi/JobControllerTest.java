@@ -112,15 +112,14 @@ class JobControllerTest {
         Mockito.when(jobService.updateJob(Mockito.eq(999L), any())).thenReturn(null);
 
         mockMvc.perform(put("/api/v1/jobs/999")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
                         {
                           "freelancerId": 1,
                           "description": "Updated Job Description",
                           "status": "FINISHED"
                         }
-                    """)).andExpect(result ->
-                assertTrue(result.getResolvedException() instanceof ResourceNotFoundException)
-        );
-    }
+                    """)).andExpect(status().isNotFound());
+        }
 }
+
