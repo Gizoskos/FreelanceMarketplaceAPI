@@ -4,13 +4,14 @@ import com.gizem.freelancemarketplaceapi.exception.ResourceNotFoundException;
 import com.gizem.freelancemarketplaceapi.dto.JobDTO;
 import com.gizem.freelancemarketplaceapi.entity.Job;
 import com.gizem.freelancemarketplaceapi.service.JobService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/{version}/jobs")
+@RequestMapping("/api/v{version}/jobs")
 public class JobController {
 
     private final JobService jobService;
@@ -20,7 +21,7 @@ public class JobController {
     }
 
     @PostMapping
-    public ResponseEntity<Job> createJob(@PathVariable String version, @RequestBody JobDTO dto) {
+    public ResponseEntity<Job> createJob(@PathVariable String version, @RequestBody @Valid JobDTO dto) {
         return ResponseEntity.ok(jobService.createJob(dto));
     }
 

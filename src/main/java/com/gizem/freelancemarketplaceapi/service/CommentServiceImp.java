@@ -35,7 +35,7 @@ public class CommentServiceImp implements CommentService {
 
     @Override
     public Comment updateComment(Long commentId, CommentDTO dto) {
-        Comment existing = commentRepository.findById(commentId).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id: " + commentId));
+        Comment existing = commentRepository.findById(commentId).orElse(null);
         if (dto.getComment() != null) {
             existing.setComment(dto.getComment());
         }

@@ -1,12 +1,17 @@
 package com.gizem.freelancemarketplaceapi.dto;
 
 import com.gizem.freelancemarketplaceapi.entity.FreelancerType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class FreelancerDTO {
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @NotBlank(message = "Email cannot be blank")
     private String email;
     private String phone;
     private String city;
+    @NotNull(message = "Freelancer type cannot be null")
     private FreelancerType freelancerType;
     private String portfolioUrl;
     private String designTools;

@@ -51,7 +51,7 @@ public class FreelancerServiceImp implements FreelancerService {
 
     @Override
     public Freelancer getFreelancer(Long id) {
-        return freelancerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Freelancer not found with id: " + id)); }
+        return freelancerRepository.findById(id).orElse(null); }
 
     @Override
     public List<Freelancer> searchBy(String name, String city, FreelancerType type, String specialty, String tool) {
