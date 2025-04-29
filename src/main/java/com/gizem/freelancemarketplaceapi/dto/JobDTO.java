@@ -1,13 +1,21 @@
 package com.gizem.freelancemarketplaceapi.dto;
 
 import com.gizem.freelancemarketplaceapi.entity.JobStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
 public class JobDTO {
+    @NotNull(message = "FreelancerId cannot be null")
     private Long freelancerId;
+    @NotBlank(message = "Description cannot be blank")
     private String description;
+    @NotNull(message = "Status cannot be null")
     private JobStatus status; // In progress, finished
+    @Schema(type = "string", pattern = "yyyy-MM-dd", example = "2025-04-28")
+
     private LocalDate createdDate;
 
     public JobDTO() {

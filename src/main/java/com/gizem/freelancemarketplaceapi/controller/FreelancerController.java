@@ -5,13 +5,14 @@ import com.gizem.freelancemarketplaceapi.dto.FreelancerDTO;
 import com.gizem.freelancemarketplaceapi.entity.Freelancer;
 import com.gizem.freelancemarketplaceapi.entity.FreelancerType;
 import com.gizem.freelancemarketplaceapi.service.FreelancerService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/{version}/freelancers")
+@RequestMapping("/api/v{version}/freelancers")
 public class FreelancerController {
 
     private final FreelancerService freelancerService;
@@ -21,7 +22,7 @@ public class FreelancerController {
     }
 
     @PostMapping
-    public ResponseEntity<Freelancer> createFreelancer(@PathVariable String version, @RequestBody FreelancerDTO dto) {
+    public ResponseEntity<Freelancer> createFreelancer(@PathVariable String version, @RequestBody @Valid FreelancerDTO dto) {
         Freelancer created = freelancerService.createFreelancer(dto);
         return ResponseEntity.ok(created);
     }
