@@ -22,6 +22,9 @@ A backend RESTful API for a freelance job marketplace where users can create job
 - Dotenv for environment management
 
 ---
+## GitlabFlow
+
+![App Structure]([https://github.com/user-attachments/assets/fb231699-f0ec-4ae2-803a-d633004127e2](https://github.com/user-attachments/assets/47331171-469d-4d91-aa29-7a864669ddd4))
 
 ## API Summary
 
