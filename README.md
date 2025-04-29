@@ -24,7 +24,7 @@ A backend RESTful API for a freelance job marketplace where users can create job
 ---
 ## GitlabFlow
 
-![App Structure](https://github.com/user-attachments/assets/fb231699-f0ec-4ae2-803a-d633004127e2)
+![App Structure](https://github.com/user-attachments/assets//assets/a551a3bd-d32f-4608-8abf-74ecda030ca6)
 
 ## API Summary
 
