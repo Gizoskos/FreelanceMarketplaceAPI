@@ -26,6 +26,9 @@ A backend RESTful API for a freelance job marketplace where users can create job
 
 ![App Structure](https://github.com/user-attachments/assets/a551a3bd-d32f-4608-8abf-74ecda030ca6)
 
+![createFreelancerFlow](https://github.com/user-attachments/assets/8f820ba5-27db-45af-b41a-675a55be53da)
+
+
 ## API Summary
 
 | Endpoint                              | Method | Auth | Description                                     |
