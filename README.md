@@ -141,16 +141,10 @@ Note: Make sure to create this file in your project root. It is already excluded
 ## How to Run Locally
 ```text
 1. Clone the project
-bash
-Copy
-Edit
 git clone https://github.com/Gizoskos/freelance-marketplace-api.git
 cd freelance-marketplace-api
 
 2. Start services (RabbitMQ & PostgreSQL)
-bash
-Copy
-Edit
 docker-compose up --build
 docker-compose up -d
 
@@ -158,8 +152,6 @@ docker-compose up -d
 Update src/main/resources/application.properties:
 
 properties
-Copy
-Edit
 spring.datasource.url=jdbc:postgresql://localhost:5432/freelancedb
 spring.datasource.username=postgres
 spring.datasource.password=yourpassword
@@ -170,16 +162,10 @@ spring.rabbitmq.username=guest
 spring.rabbitmq.password=guest
 
 4. Build and run the project
-bash
-Copy
-Edit
 mvn clean install
 mvn spring-boot:run
 
 5. Open Swagger UI
-bash
-Copy
-Edit
 http://localhost:8080/swagger-ui/index.html
 ```
 
