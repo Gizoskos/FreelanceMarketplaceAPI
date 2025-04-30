@@ -151,6 +151,7 @@ cd freelance-marketplace-api
 bash
 Copy
 Edit
+docker-compose up --build
 docker-compose up -d
 
 3. Configure application properties
