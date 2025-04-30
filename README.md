@@ -14,10 +14,10 @@ A backend RESTful API for a freelance job marketplace where users can create job
 - Java 17
 - Spring Boot 3.x / 3.4.5
 - Spring Data JPA (Hibernate)
-- PostgreSQL
+- PostgreSQL 16
 - RabbitMQ
 - Maven
-- SpringDoc (Swagger/OpenAPI)
+- SpringDoc (Swagger/OpenAPI) (Latest 2.8.6)
 - Docker + Docker Compose
 - Dotenv for environment management
 
