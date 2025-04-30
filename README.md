@@ -207,5 +207,7 @@ com.gizem.freelancemarketplaceapi
 ├── service          → Business logic
 ├── config           → RabbitMQ + Swagger config
 ├── exception        → Custom exceptions (Not usable anymore)
-
+```
+```text
 Author: Gizem Gültoprak
+```
