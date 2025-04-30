@@ -103,6 +103,37 @@ Test @Valid rejection with missing required fields (name, status)
 - Job
 - Comment
 
+## Environment Variables
+```text
+This project uses a .env file to manage environment-specific configurations such as database credentials and RabbitMQ settings.
+
+Example .env file:
+
+env
+Copy
+Edit
+DB_URL=jdbc:postgresql://postgres:5432/freelance_marketplace
+DB_USERNAME=postgres
+DB_PASSWORD=12345678
+DB_PORT=5432
+DB_NAME=freelance_marketplace
+DB_HOST=postgres
+
+RABBITMQ_HOST=rabbitmq
+RABBITMQ_PORT=5672
+RABBITMQ_USERNAME=guest
+RABBITMQ_PASSWORD=guest
+RABBITMQ_EXCHANGE=freelancer-exchange
+RABBITMQ_QUEUE=freelancer-evaluation-queue
+RABBITMQ_ROUTING_KEY=freelancer-evaluation-routing-key
+SPRING_JPA_HIBERNATE_DDL_AUTO=update
+SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+SPRING_JPA_SHOW_SQL=true
+spring.docker.compose.readiness.wait=NEVER
+
+SERVER_PORT=8080
+Note: Make sure to create this file in your project root. It is already excluded from Git using .gitignore.
+```
 
 ## How to Run Locally
 ```text
@@ -147,6 +178,7 @@ Copy
 Edit
 http://localhost:8080/swagger-ui/index.html
 ```
+
 
 ## Problems & Solutions
 ```text
